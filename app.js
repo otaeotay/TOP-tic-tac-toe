@@ -1,4 +1,6 @@
 let xturn = true;
+const gameStatus = document.querySelector('.status');
+const resetBtn = document.querySelector('.reset')
 const winningComb = [
     [0, 1, 2],
     [3, 4, 5],
@@ -10,8 +12,6 @@ const winningComb = [
     [2, 4, 6],
 ];
 
-const winner = document.querySelector('.winner');
-
 const gameboard = (()=> {
     let board = ['', '', '', '', '', '', '', '', ''];
 
@@ -19,9 +19,9 @@ const gameboard = (()=> {
     const playTurn = (turn, currentPlay) => {
         board[turn] = currentPlay
         if (checkX()) {
-            winner.innerText = 'X wins!'
+            gameStatus.innerText = 'X wins!'
         } else if (checkO()) {
-            winner.innerText = 'O wins!'
+            gameStatus.innerText = 'O wins!'
         }
         return board;
     }
@@ -42,7 +42,16 @@ const gameboard = (()=> {
         })
     };
 
-    return{playTurn}
+    const reset = () => {
+        const boardReset = document.querySelectorAll('.tile');
+        boardReset.forEach(space => {
+            console.log(space)
+            space.innerText='';
+        });
+        return board = ['', '', '', '', '', '', '', '', ''];
+    }
+
+    return{playTurn, reset}
 })();
 
 const player = (name) => {
@@ -50,9 +59,11 @@ const player = (name) => {
     const currentPlayer = () => {
         if (xturn){
             xturn = false;
+            gameStatus.innerText = 'X Turn';
             return 'X';           
         } else {
             xturn = true;
+            gameStatus.innerText = 'O Turn';
             return 'O';            
         }
     }
@@ -84,3 +95,7 @@ for (let i = 0; i < 3; i++) {
     boardRow.classList.add('row');
     boardDisplay.appendChild(boardRow);
 }
+
+resetBtn.addEventListener('click', () => {
+    game.reset();
+})

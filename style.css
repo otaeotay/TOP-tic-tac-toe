@@ -1,7 +1,8 @@
 body{
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     height: 100vh;
     overflow: hidden;
 }
@@ -17,6 +18,28 @@ body{
     justify-content: center;
     height: 150px;
     width: 150px;
-    background-color: green;
+    background-color: rgb(110, 166, 189);
     border: 2px solid black;
+}
+
+.status{
+    font-size: 96px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    width: 600px;
+    background-color: rgb(173, 133, 95);
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+.reset{
+    font-size: 24px;
+    height: 50px;
+    width: 300px;
+    background-color: rgb(226, 169, 64);
+    border: 2px solid black;
+    border-radius: 20px;
+
 }
