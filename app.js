@@ -25,8 +25,17 @@ const gameboard = (()=> {
         } else if (checkO()) {
             gameStatus.innerText = 'O wins!';
             boardDisplay.classList.add('occupied');
+        } else if (checkTie()) {
+            gameStatus.innerText = 'Tie Game!';
+            boardDisplay.classList.add('occupied');
         }
         return board;
+    }
+
+    const checkTie = () => {
+        return board.every((i) => {
+            return i > 0;
+        })
     }
     
     const checkX = () => {
