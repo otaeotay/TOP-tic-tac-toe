@@ -5,6 +5,7 @@ body{
     justify-content: space-around;
     height: 100vh;
     overflow: hidden;
+    background-color: rgb(87, 141, 87);
 }
 
 .row{
@@ -20,6 +21,10 @@ body{
     width: 150px;
     background-color: rgb(110, 166, 189);
     border: 2px solid black;
+}
+
+.occupied{
+    pointer-events: none;
 }
 
 .status{
