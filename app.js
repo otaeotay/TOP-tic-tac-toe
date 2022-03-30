@@ -20,9 +20,11 @@ const gameboard = (()=> {
     const playTurn = (turn, currentPlay) => {
         board[turn] = currentPlay
         if (checkX()) {
-            gameStatus.innerText = 'X wins!'
+            gameStatus.innerText = 'X wins!';
+            boardDisplay.classList.add('occupied');
         } else if (checkO()) {
-            gameStatus.innerText = 'O wins!'
+            gameStatus.innerText = 'O wins!';
+            boardDisplay.classList.add('occupied');
         }
         return board;
     }
@@ -49,6 +51,7 @@ const gameboard = (()=> {
             space.innerText='';
             space.classList.remove('occupied');
         });
+        boardDisplay.classList.remove('occupied');
         gameStatus.innerText = ''
         return board = ['', '', '', '', '', '', '', '', ''];
     }
